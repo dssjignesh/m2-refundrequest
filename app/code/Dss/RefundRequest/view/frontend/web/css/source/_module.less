@@ -1,0 +1,93 @@
+// Define color variables
+@color-black: #0000008a;
+@color-gray: #757575;
+@color-red: #d16f62;
+@color-white: #fff;
+
+& when (@media-common = true) {
+    .dss-modals-wrapper {
+        .dss-modal {
+            background-color: @color-black;
+            z-index: 101 !important;
+        }
+        .modal-inner-wrap {
+            border-radius: 5px;
+            color: @color-gray;
+
+            .dss-refund-modal {
+                .control {
+                    margin: 15px 0;
+
+                    p {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            .modal-header {
+                padding-left: 0;
+                padding-right: 0;
+                text-align: center;
+                text-transform: uppercase;
+
+                h1 {
+                    color: @color-red;
+                    font-size: 20px;
+                    font-weight: bolder;
+                }
+            }
+        }
+        .modal-popup {
+            .modal-title {
+                border-bottom: 1px solid @color-gray;
+            }
+        }
+    }
+
+    .modal-footer {
+        text-align: end;
+
+        button {
+            background: @color-red;
+            border: 1px solid @color-red;
+            border-radius: 5px;
+            box-shadow: unset;
+            color: @color-white;
+            padding: 8px 10px;
+        }
+    }
+}
+
+//  For all mobile styles
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .dss-modals-wrapper {
+        .modal-inner-wrap {
+            width: 90%;
+        }
+    }
+    .dss-popup-button {
+        margin-bottom: 10px;
+    }
+}
+
+//  Tablet
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .dss-modals-wrapper {
+        .modal-inner-wrap {
+            max-width: 70%;
+        }
+    }
+    .dss-popup-button {
+        margin-bottom: 10px;
+    }
+}
+
+//  Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .dss-modals-wrapper {
+        .modal-inner-wrap {
+            max-height: 580px;
+            max-width: 500px;
+        }
+    }
+}

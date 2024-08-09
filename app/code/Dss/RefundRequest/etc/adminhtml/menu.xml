@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Digit Software Solutions.
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the EULA
+* that is bundled with this package in the file LICENSE.txt.
+*
+* @category  Dss
+* @package   Dss_RefundRequest
+* @author    Extension Team
+* @copyright Copyright (c) 2024 Digit Software Solutions. ( https://digitsoftsol.com )
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Dss_RefundRequest::request" title="Refund Request by Customer"
+            action="dss_refundrequest/request/index" module="Dss_RefundRequest" sortOrder="90"
+            parent="Magento_Sales::sales_operation" resource="Magento_Sales::sales_dss_refund_request"/>
+        <add id="Dss_RefundRequest::label" title="Refund Request Dropdown Options"
+            action="dss_refundrequest/label/index" module="Dss_RefundRequest" sortOrder="100"
+            parent="Magento_Sales::sales_operation" resource="Magento_Sales::sales_dss_refund_request_label"/>
+    </menu>
+</config>
