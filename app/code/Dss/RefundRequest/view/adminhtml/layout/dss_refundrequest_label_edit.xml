@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Digit Software Solutions.
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the EULA
+* that is bundled with this package in the file LICENSE.txt.
+*
+* @category  Dss
+* @package   Dss_RefundRequest
+* @author    Extension Team
+* @copyright Copyright (c) 2024 Digit Software Solutions. ( https://digitsoftsol.com )
+*/
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<body>
+    <referenceContainer name="content">
+        <block class="Dss\RefundRequest\Block\Adminhtml\Label\Edit" name="label_edit"/>
+    </referenceContainer>
+    <referenceContainer name="left">
+        <block class="Dss\RefundRequest\Block\Adminhtml\Label\Edit\Tabs" name="label_edit_tabs">
+            <block class="Dss\RefundRequest\Block\Adminhtml\Label\Edit\Tab\Label" name="label_edit_tab_label"/>
+            <action method="addTab">
+                <argument name="name" xsi:type="string">main_section</argument>
+                <argument name="block" xsi:type="string">label_edit_tab_label</argument>
+            </action>
+        </block>
+    </referenceContainer>
+</body>
+</page>

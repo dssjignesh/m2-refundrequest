@@ -1,0 +1,107 @@
+<?php
+/**
+ * Digit Software Solutions.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ *
+ * @category  Dss
+ * @package   Dss_RefundRequest
+ * @author    Extension Team
+ * @copyright Copyright (c) 2024 Digit Software Solutions. ( https://digitsoftsol.com )
+ */
+
+/**
+ * @var $block \Dss\RefundRequest\Block\Label
+ */
+?>
+<?php
+
+    $refundStatus = json_encode($block->getRefundStatus()->getData());
+    $orderRefund = json_encode($block->getOrderRefund());
+    $orders = json_encode($block->getOrderCollectionByCustomerId());
+?>
+
+<?php if ($block->getConfigEnableModule()) { ?>
+<div id="dss-refund-modal" class="dss-refund-modal" style="display: none;">
+  <form action="http://localhost/m222/refundrequest/order/index" class="form refund" id="dss-refund-form" method="post"
+    data-hasrequired="<?= $escaper->escapeHtml(__('* Required Fields')) ?>" data-mage-init='{"validation":{}}'>
+    <fieldset class="fieldset">
+      <div class="control">
+        <?php $title = $block->getPopupDescription(); ?>
+        <p><?= $escaper->escapeHtml($title ? __($title) :
+                __("We are sorry to know that you want a refund. Please let us know what's wrong")); ?></p>
+      </div>
+      <div class="control">
+        <input type="hidden" name="dss-refund-order-id" value="" class="dss-refund-oder-id">
+        <?php $formKey = $block->getFormKey()?>
+        <input type="hidden" name="form_key" value="<?= $escaper->escapeHtml($formKey) ?>" class="form_key">
+      </div>
+      <?php if ($block->getConfigEnableDropdown()): ?>
+      <div class="field required">
+            <?php $dropdownTitle = $block->getDropdownTitle(); ?>
+        <label class="label" for="label"><span>
+            <?= $escaper->escapeHtml($dropdownTitle ? __($dropdownTitle) : __('Reason for refund')); ?>
+          </span></label>
+        <div class="control">
+          <label>
+            <select name="dss-option">
+              <?php $a = $block->getLabel(); ?>
+              <?php foreach ($a as $value) { ?>
+              <option><?= $escaper->escapeHtml($value->getData('request_label')); ?></option>
+              <?php } ?>
+            </select>
+          </label>
+        </div>
+      </div>
+      <?php endif; ?>
+      <?php if ($block->getConfigEnableOption()): ?>
+      <div class="field required">
+            <?php $optionTitle = $block->getOptionTitle(); ?>
+        <label class="label" for="label"><span>
+            <?= $escaper->escapeHtml($optionTitle ? __($optionTitle) : __('Product is opened')); ?></span></label>
+        <div class="control">
+          <label>
+            <input type="radio" name="dss-radio" value="1" required="required">
+          </label><span><?= $escaper->escapeHtml(__('Yes')) ?></span>
+          <label>
+            <input type="radio" name="dss-radio" value="0">
+          </label><span><?= $escaper->escapeHtml(__('No')) ?></span>
+        </div>
+      </div>
+      <?php endif; ?>
+      <div class="field required">
+        <?php $detailTitle = $block->getDetailTitle(); ?>
+        <label class="label" for="label"><span>
+            <?= $escaper->escapeHtml($detailTitle ? __($detailTitle) : __('Faulty or other detail')); ?></span></label>
+        <div class="control">
+          <label>
+            <textarea class="dss-refund-reason input-text" name="dss-refund-reason"
+              data-validate="{required:true}"></textarea>
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
+<div id="message"></div>
+    <?php $poptupTitle = $block->getPopupModuleTitle();?>
+<script type="text/x-magento-init">
+  {
+            "*":
+                {
+                    "Dss_RefundRequest/js/get-oder": {
+                        "orderRefund" : <?= /* @noEscape */ $orderRefund; ?>,
+                        "dssUrl" : "<?= /* @noEscape */ $block->getBaseUrl(); ?>",
+                        "dssPopupTitle" : "<?= /* @noEscape */ $poptupTitle ?
+                                                __($poptupTitle) : __('Refund Request');?>",
+                        "dataOrder" : <?= /* @noEscape */ $refundStatus; ?>,
+                        "orders": <?= /* @noEscape */ $orders ?>
+                    }
+                }
+
+        }
+    </script>
+<?php   } ?>
