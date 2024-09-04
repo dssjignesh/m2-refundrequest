@@ -60,7 +60,7 @@ class Index extends Action
      *
      * @return ResponseInterface|ResultInterface
      */
-    public function execute(): ResponseInterface|ResultInterface
+    public function execute()
     {
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         if (!$this->formKeyValidator->validate($this->getRequest())) {

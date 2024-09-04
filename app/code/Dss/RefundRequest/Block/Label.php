@@ -185,7 +185,7 @@ class Label extends Template
      *
      * @return bool|\Magento\Sales\Model\ResourceModel\Order\Collection
      */
-    public function getOrder(): bool|SaleCollection
+    public function getOrder()
     {
         return $this->history->getOrders();
     }

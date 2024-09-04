@@ -53,7 +53,7 @@ class MassDelete extends Action
      * @return ResponseInterface|ResultInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function execute(): ResponseInterface|ResultInterface
+    public function execute()
     {
         $collection = $this->filter->getCollection($this->collectionFactory->create());
         $delete = 0;

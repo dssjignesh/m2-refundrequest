@@ -71,7 +71,7 @@ class MassReject extends Action
      * @return ResponseInterface|ResultInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function execute(): ResponseInterface|ResultInterface
+    public function execute()
     {
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         if ($this->helper->getConfigEnableModule()) {
