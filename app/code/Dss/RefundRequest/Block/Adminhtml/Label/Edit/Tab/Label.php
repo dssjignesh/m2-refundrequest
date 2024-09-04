@@ -98,7 +98,7 @@ class Label extends Generic implements TabInterface
      *
      * @return Phrase|string
      */
-    public function getTabLabel(): string
+    public function getTabLabel(): Phrase|string
     {
         return __('Option');
     }
@@ -108,7 +108,7 @@ class Label extends Generic implements TabInterface
      *
      * @return Phrase|string
      */
-    public function getTabTitle(): string
+    public function getTabTitle(): Phrase|string
     {
         return $this->getTabLabel();
     }

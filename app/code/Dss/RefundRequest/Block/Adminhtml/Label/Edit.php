@@ -58,7 +58,7 @@ class Edit extends Container
      *
      * @return \Magento\Framework\Phrase|string
      */
-    public function getHeaderText()
+    public function getHeaderText(): Phrase|string
     {
         if ($this->coreRegistry->registry('dss_refundrequest')->getId()) {
             return __(
