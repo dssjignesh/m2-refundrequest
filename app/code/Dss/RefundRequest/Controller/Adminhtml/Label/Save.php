@@ -56,7 +56,7 @@ class Save extends Action
      *
      * @return ResponseInterface|ResultInterface
      */
-    public function execute(): ResponseInterface|ResultInterface
+    public function execute()
     {
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         $model = $this->labelFactory->create();

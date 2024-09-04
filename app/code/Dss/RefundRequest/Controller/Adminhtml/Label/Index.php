@@ -46,7 +46,7 @@ class Index extends Action
      *
      * @return ResponseInterface|ResultInterface|Page
      */
-    public function execute(): ResponseInterface|ResultInterface|Page
+    public function execute()
     {
         $resultPage = $this->resultPageFactory->create();
         $resultPage->getConfig()->getTitle()->prepend((__(' Refund Request Dropdown Options')));
