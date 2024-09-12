@@ -23,7 +23,7 @@
             </dss_refundrequest_general>
             <dss_refundrequest_config>
                 <popup_title>refund request</popup_title>
-                <title>We are sorry to know that you want a refund, Plase let us know what's wrong?</title>
+                <popup_description>We are sorry to know that you want a refund, Plase let us know what's wrong?</popup_description>
                 <dropdown_title>Reason for refund</dropdown_title>
                 <option_title>Product is opened</option_title>
                 <detail_title>Faulty or other detail</detail_title>
